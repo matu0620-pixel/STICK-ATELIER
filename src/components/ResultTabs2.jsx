@@ -10,7 +10,7 @@ export function BusinessTab({
   generateBusinessAnalysis, generateReviews,
 }) {
   return (
-    <div className="px-5 py-7 bg-white">
+    <div className="px-5 md:px-8 py-7 md:py-10 bg-white">
       <SectionLabel num="05" en="BUSINESS" jp="事業性検証" />
       {!displayBusinessData && !businessLoading && viewMode === 'form' && (
         <div className="bg-[#F1EFE5] p-4 rounded-sm border border-[#D8D4C2]">
@@ -36,7 +36,7 @@ export function BusinessTab({
       )}
 
       {displayBusinessData && (
-        <div className="space-y-6 mt-5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-5">
           <div>
             <div className="text-sm text-[#1F2A38] mb-2 font-bold flex items-center gap-1.5">
               <Map className="w-4 h-4 text-[#2C4A6E]" />競合ポジショニングマップ
@@ -55,7 +55,7 @@ export function BusinessTab({
               </div>
             </div>
           </div>
-          <div className="pt-3 border-t border-[#D8D4C2]">
+          <div className="lg:pt-0 pt-3 lg:border-t-0 border-t border-[#D8D4C2] lg:mt-0">
             <div className="text-sm text-[#1F2A38] mb-3 font-bold flex items-center gap-1.5">
               <Calculator className="w-4 h-4 text-[#2C4A6E]" />収益シミュレーション
             </div>
@@ -92,7 +92,7 @@ export function BusinessTab({
             <div className="text-xs text-[#2C4A6E] font-bold mb-2 flex items-center gap-1.5">
               <CheckCircle2 className="w-3.5 h-3.5" />想定される好評レビュー
             </div>
-            <div className="space-y-2">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
               {displayReviewData.positiveReviews.map((r, i) => (
                 <div key={i} className="bg-white p-3 rounded-sm border border-[#2C4A6E]/30">
                   <div className="flex items-center gap-2 mb-1.5">
@@ -113,7 +113,7 @@ export function BusinessTab({
             <div className="text-xs text-[#B86F4F] font-bold mb-2 flex items-center gap-1.5">
               <AlertCircle className="w-3.5 h-3.5" />想定される懸念レビュー
             </div>
-            <div className="space-y-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
               {displayReviewData.negativeReviews.map((r, i) => (
                 <div key={i} className="bg-white p-3 rounded-sm border border-[#B86F4F]/30">
                   <div className="flex items-center gap-2 mb-1.5">
@@ -135,7 +135,7 @@ export function BusinessTab({
             <div className="text-xs text-[#1F2A38] font-bold mb-2 flex items-center gap-1.5">
               <Lightbulb className="w-3.5 h-3.5 text-[#C4A878]" />改善アクション
             </div>
-            <div className="space-y-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
               {displayReviewData.actionableInsights.map((a, i) => (
                 <div key={i} className="bg-[#F1EFE5] p-3 rounded-sm" style={{ borderLeft: '3px solid #C4A878' }}>
                   <div className="text-xs text-[#B8956A] font-bold mb-1">課題: {a.insight}</div>
@@ -158,7 +158,7 @@ export function BusinessTab({
 
 export function MarketingTab({ displayMarketingData, marketingLoading, viewMode, generateMarketing }) {
   return (
-    <div className="px-5 py-7 bg-white">
+    <div className="px-5 md:px-8 py-7 md:py-10 bg-white">
       <SectionLabel num="06" en="MARKETING" jp="マーケティング戦略" />
       {!displayMarketingData && !marketingLoading && viewMode === 'form' && (
         <div className="bg-[#F1EFE5] p-4 rounded-sm border border-[#D8D4C2]">
@@ -189,7 +189,7 @@ export function MarketingTab({ displayMarketingData, marketingLoading, viewMode,
             </div>
           </div>
           <div className="text-[10px] tracking-[0.2em] text-[#7A92AB] mb-2 font-bold">PAGE STRUCTURE</div>
-          <div className="space-y-2 mb-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-4">
             {displayMarketingData.lp.sections.map((s, i) => (
               <div key={i} className="bg-white border border-[#D8D4C2] rounded-sm p-3 flex gap-3">
                 <div className="flex-shrink-0 w-7 h-7 rounded-sm bg-[#F1EFE5] text-[#2C4A6E] flex items-center justify-center text-xs font-bold border border-[#2C4A6E]/30">
@@ -204,7 +204,7 @@ export function MarketingTab({ displayMarketingData, marketingLoading, viewMode,
             ))}
           </div>
           <div className="text-[10px] tracking-[0.2em] text-[#7A92AB] mb-2 font-bold">FAQ</div>
-          <div className="space-y-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
             {displayMarketingData.lp.faq.map((f, i) => (
               <div key={i} className="bg-[#F1EFE5] rounded-sm p-3">
                 <div className="text-xs text-[#1F2A38] font-bold mb-1.5">Q. {f.q}</div>
@@ -214,6 +214,7 @@ export function MarketingTab({ displayMarketingData, marketingLoading, viewMode,
           </div>
 
           <SubHeader icon={Hash} label="SNS投稿テンプレート" en="SOCIAL MEDIA" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
           <div className="bg-white border border-[#D8D4C2] rounded-sm p-3 mb-3">
             <div className="flex items-center gap-1.5 mb-2">
               <div className="w-5 h-5 rounded-sm bg-gradient-to-br from-[#F58529] to-[#DD2A7B]" />
@@ -242,30 +243,35 @@ export function MarketingTab({ displayMarketingData, marketingLoading, viewMode,
             <div className="text-[10px] text-[#2C4A6E] font-bold mb-1.5">構成</div>
             <div className="bg-[#F1EFE5] p-2.5 rounded-sm text-[11px] text-[#1F2A38] leading-relaxed">{displayMarketingData.social.tiktok.script}</div>
           </div>
+          </div>
 
           <SubHeader icon={Send} label="広告コンセプト案" en="AD CREATIVE" />
-          <div className="space-y-2 mb-3">
-            <div className="text-[10px] tracking-[0.2em] text-[#7A92AB] font-bold">広告ヘッドライン候補</div>
-            {displayMarketingData.ad.headlines.map((h, i) => (
-              <div key={i} className="bg-white border border-[#D8D4C2] rounded-sm p-3 flex gap-2.5">
-                <div className="text-[10px] text-[#C4A878] font-bold flex-shrink-0">{String.fromCharCode(65 + i)}</div>
-                <div className="text-xs text-[#1F2A38] font-bold leading-relaxed">「{h}」</div>
-              </div>
-            ))}
+          <div className="mb-3">
+            <div className="text-[10px] tracking-[0.2em] text-[#7A92AB] font-bold mb-2">広告ヘッドライン候補</div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+              {displayMarketingData.ad.headlines.map((h, i) => (
+                <div key={i} className="bg-white border border-[#D8D4C2] rounded-sm p-3 flex gap-2.5">
+                  <div className="text-[10px] text-[#C4A878] font-bold flex-shrink-0">{String.fromCharCode(65 + i)}</div>
+                  <div className="text-xs text-[#1F2A38] font-bold leading-relaxed">「{h}」</div>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="space-y-2 mb-4">
-            <div className="text-[10px] tracking-[0.2em] text-[#7A92AB] font-bold">ビジュアルコンセプト</div>
-            {displayMarketingData.ad.visualConcepts.map((v, i) => (
-              <div key={i} className="bg-[#F1EFE5] rounded-sm p-3" style={{ borderLeft: '3px solid #B8956A' }}>
-                <div className="text-xs text-[#B8956A] mb-1 font-bold">CONCEPT {i + 1}: {v.name}</div>
-                <div className="text-[11px] text-[#1F2A38] leading-relaxed">{v.description}</div>
-              </div>
-            ))}
+          <div className="mb-4">
+            <div className="text-[10px] tracking-[0.2em] text-[#7A92AB] font-bold mb-2">ビジュアルコンセプト</div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+              {displayMarketingData.ad.visualConcepts.map((v, i) => (
+                <div key={i} className="bg-[#F1EFE5] rounded-sm p-3" style={{ borderLeft: '3px solid #B8956A' }}>
+                  <div className="text-xs text-[#B8956A] mb-1 font-bold">CONCEPT {i + 1}: {v.name}</div>
+                  <div className="text-[11px] text-[#1F2A38] leading-relaxed">{v.description}</div>
+                </div>
+              ))}
+            </div>
           </div>
 
           <SubHeader icon={Users} label="インフルエンサー戦略" en="INFLUENCER" />
           <div className="text-[10px] tracking-[0.2em] text-[#7A92AB] font-bold mb-2">階層別の起用設計</div>
-          <div className="space-y-2 mb-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-4">
             {displayMarketingData.influencer.tiers.map((t, i) => {
               const colors = ['#7A92AB', '#4A6B8C', '#2C4A6E'];
               const widths = ['60%', '80%', '100%'];
@@ -288,7 +294,7 @@ export function MarketingTab({ displayMarketingData, marketingLoading, viewMode,
             })}
           </div>
           <div className="text-[10px] tracking-[0.2em] text-[#7A92AB] font-bold mb-2">ターゲットインフルエンサー像</div>
-          <div className="space-y-2 mb-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-4">
             {displayMarketingData.influencer.personaTypes.map((p, i) => (
               <div key={i} className="bg-[#F1EFE5] rounded-sm p-3">
                 <div className="flex items-baseline gap-2 mb-1.5 flex-wrap">
@@ -305,7 +311,7 @@ export function MarketingTab({ displayMarketingData, marketingLoading, viewMode,
               </div>
             ))}
           </div>
-          <div className="grid grid-cols-1 gap-2 mb-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-3">
             <div className="bg-gradient-to-br from-[#2C4A6E] to-[#1A2F4A] text-white rounded-sm p-3">
               <div className="flex items-center gap-1.5 mb-1.5">
                 <DollarSign className="w-3.5 h-3.5 text-[#C4A878]" />

@@ -6,7 +6,7 @@ const iconMap = { fragrance: Wind, package: Package, ingredient: Feather, social
 
 export default function TrendSection({ trendData, trendLoading, generateTrendAnalysis }) {
   return (
-    <section className="px-5 py-7 border-b border-[#D8D4C2]" style={{ background: '#F1EFE5' }}>
+    <section className="px-5 md:px-8 py-7 md:py-10 border-b border-[#D8D4C2]" style={{ background: '#F1EFE5' }}>
       <SectionLabel num="◇" en="MARKET TREND" jp="市場トレンド分析" />
 
       {!trendData && !trendLoading && (
@@ -42,7 +42,7 @@ export default function TrendSection({ trendData, trendLoading, generateTrendAna
             <div className="text-xs text-[#1F2A38] mb-3 font-bold flex items-center gap-1.5">
               <Award className="w-3.5 h-3.5 text-[#2C4A6E]" />人気商品 TOP 5
             </div>
-            <div className="space-y-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
               {trendData.trendingProducts.map((p, i) => (
                 <div key={i} className="bg-white p-3 rounded-sm border border-[#D8D4C2] flex gap-3">
                   <div className="flex-shrink-0 w-7 h-7 rounded-sm bg-[#2C4A6E] text-white flex items-center justify-center text-xs font-bold">{p.rank}</div>
@@ -63,7 +63,7 @@ export default function TrendSection({ trendData, trendLoading, generateTrendAna
             <div className="text-xs text-[#1F2A38] mb-3 font-bold flex items-center gap-1.5">
               <Target className="w-3.5 h-3.5 text-[#2C4A6E]" />共通する成功要因
             </div>
-            <div className="space-y-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
               {trendData.successFactors.map((f, i) => {
                 const Icon = iconMap[f.icon] || Sparkles;
                 return (
@@ -104,7 +104,7 @@ export default function TrendSection({ trendData, trendLoading, generateTrendAna
             <div className="text-xs text-white mb-3 font-bold flex items-center gap-1.5">
               <Lightbulb className="w-4 h-4 text-[#C4D0E0]" />成功へのヒント
             </div>
-            <div className="space-y-2.5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
               {trendData.successHints.map((h, i) => (
                 <div key={i} className="bg-white/10 backdrop-blur p-3 rounded-sm border-l-[3px] border-[#C4A878]">
                   <div className="flex items-baseline gap-2 mb-1">
@@ -117,7 +117,7 @@ export default function TrendSection({ trendData, trendLoading, generateTrendAna
             </div>
           </div>
 
-          <button onClick={generateTrendAnalysis} className="w-full py-2.5 bg-white border border-[#2C4A6E] text-[#2C4A6E] rounded-sm font-bold text-xs">
+          <button onClick={generateTrendAnalysis} className="w-full md:max-w-xs md:mx-auto md:block py-2.5 bg-white border border-[#2C4A6E] text-[#2C4A6E] rounded-sm font-bold text-xs">
             再分析する
           </button>
         </div>

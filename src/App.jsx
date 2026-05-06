@@ -137,9 +137,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen min-h-dvh w-full bg-[#F1EFE5] md:bg-[#D8D4C2]" style={{ fontFamily: meiryo }}>
-      <div className="mx-auto max-w-md min-h-screen min-h-dvh bg-[#F1EFE5] md:shadow-2xl relative">
+      <div className="mx-auto max-w-md md:max-w-3xl lg:max-w-5xl min-h-screen min-h-dvh bg-[#F1EFE5] md:shadow-2xl relative">
       {/* HEADER */}
-      <header className="px-5 pt-9 pb-7 border-b border-[#D8D4C2]" style={{ background: 'linear-gradient(180deg, #FAF8F1 0%, #F1EFE5 100%)' }}>
+      <header className="px-5 md:px-8 pt-9 pb-7 md:pt-12 md:pb-10 border-b border-[#D8D4C2]" style={{ background: 'linear-gradient(180deg, #FAF8F1 0%, #F1EFE5 100%)' }}>
         <div className="flex items-center justify-between mb-4">
           <div className="text-[10px] tracking-[0.3em] text-[#2C4A6E] font-bold">BRAND MODELING TOOL</div>
           <div className="text-[9px] tracking-[0.1em] text-[#B8956A] font-bold bg-[#B8956A]/10 px-2 py-0.5 rounded-sm border border-[#B8956A]/30">DEMO MODE</div>
@@ -154,10 +154,10 @@ export default function App() {
       </header>
 
       {/* SAMPLES */}
-      <section className="px-5 py-7 border-b border-[#D8D4C2]" style={{ background: '#FAF8F1' }}>
+      <section className="px-5 md:px-8 py-7 md:py-10 border-b border-[#D8D4C2]" style={{ background: '#FAF8F1' }}>
         <SectionLabel num="◆" en="EXAMPLES" jp="出力サンプル(2パターン)" />
         <p className="text-[11px] text-[#5A6878] mb-4 leading-relaxed">タップで全項目を一括確認。デザインカスタマイズも体験できます。</p>
-        <div className="space-y-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <SampleCard data={sampleA} onClick={() => handleSampleClick('sampleA')} />
           <SampleCard data={sampleB} onClick={() => handleSampleClick('sampleB')} />
         </div>
@@ -171,7 +171,7 @@ export default function App() {
       />
 
       {/* INPUT FORM */}
-      <section className="px-5 py-7 border-b border-[#D8D4C2]" style={{ background: '#FAF8F1' }}>
+      <section className="px-5 md:px-8 py-7 md:py-10 border-b border-[#D8D4C2]" style={{ background: '#FAF8F1' }}>
         <SectionLabel num="01" en="INPUT" jp="ペルソナ入力" />
         {trendData && (
           <div className="mb-4 p-2.5 bg-[#2C4A6E]/5 border border-[#2C4A6E]/20 rounded-sm flex items-center gap-2">
@@ -179,7 +179,7 @@ export default function App() {
             <span className="text-[10px] text-[#2C4A6E] font-bold">分析済みのトレンドを反映してブランドを生成します</span>
           </div>
         )}
-        <div className="space-y-5 mt-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5 mt-5">
           {[
             { label: '年齢層', key: 'ageRange', opts: ageOptions },
             { label: '性別', key: 'gender', opts: genderOptions },
@@ -202,7 +202,7 @@ export default function App() {
               )}
             </div>
           ))}
-          <div>
+          <div className="md:col-span-2">
             <label className="block text-xs text-[#1F2A38] mb-2 font-bold">こだわりたい要素 <span className="text-[#7A92AB] font-normal">(任意)</span></label>
             <input
               type="text" value={formData.keyValue}
@@ -211,7 +211,7 @@ export default function App() {
               className="w-full px-3 py-2.5 text-sm bg-white border border-[#D8D4C2] focus:border-[#2C4A6E] focus:outline-none text-[#1F2A38] rounded-sm"
             />
           </div>
-          <div>
+          <div className="md:col-span-2">
             <label className="block text-xs text-[#1F2A38] mb-2 font-bold">追加情報 <span className="text-[#7A92AB] font-normal">(任意)</span></label>
             <textarea
               value={formData.additional}
@@ -223,7 +223,7 @@ export default function App() {
           </div>
         </div>
 
-        <div className="mt-6 grid grid-cols-2 gap-2">
+        <div className="mt-6 grid grid-cols-2 gap-2 md:max-w-md md:mx-auto">
           <button
             onClick={generate} disabled={loading}
             className="py-3.5 bg-[#2C4A6E] text-white flex items-center justify-center gap-1.5 hover:bg-[#1A2F4A] transition-colors disabled:opacity-50 rounded-sm font-bold text-xs"
@@ -249,7 +249,7 @@ export default function App() {
                 <X className="w-3.5 h-3.5" />
               </button>
             </div>
-            <div className="space-y-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <ABVariantCard variant={abData.variantA} label="A" onSelect={generate} />
               <ABVariantCard variant={abData.variantB} label="B" onSelect={generate} />
             </div>
@@ -272,12 +272,12 @@ export default function App() {
           )}
 
           {/* Concept hero banner */}
-          <div className="px-5 py-9 text-white relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #1A2F4A 0%, #2C4A6E 60%, #4A6B8C 100%)' }}>
-            <div className="absolute top-0 right-0 w-32 h-32 opacity-10" style={{ background: 'radial-gradient(circle, #FFF 0%, transparent 70%)' }} />
+          <div className="px-5 md:px-10 py-9 md:py-14 text-white relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #1A2F4A 0%, #2C4A6E 60%, #4A6B8C 100%)' }}>
+            <div className="absolute top-0 right-0 w-32 h-32 md:w-64 md:h-64 opacity-10" style={{ background: 'radial-gradient(circle, #FFF 0%, transparent 70%)' }} />
             <div className="text-[10px] tracking-[0.3em] text-[#C4D0E0] mb-2 font-bold relative">CONCEPT / コンセプト</div>
-            <h2 className="text-2xl leading-tight mb-3 font-bold relative break-words">{displayData.concept.name}</h2>
-            <p className="text-[#C4D0E0] text-sm mb-4 relative font-bold break-words">「{displayData.concept.tagline}」</p>
-            <p className="text-xs leading-relaxed text-[#E8EAF0] relative">{displayData.concept.story}</p>
+            <h2 className="text-2xl md:text-4xl leading-tight mb-3 font-bold relative break-words">{displayData.concept.name}</h2>
+            <p className="text-[#C4D0E0] text-sm md:text-base mb-4 relative font-bold break-words">「{displayData.concept.tagline}」</p>
+            <p className="text-xs md:text-sm leading-relaxed text-[#E8EAF0] relative max-w-2xl">{displayData.concept.story}</p>
           </div>
 
           {/* Tabs */}
