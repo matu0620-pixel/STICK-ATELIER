@@ -136,7 +136,8 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen w-full" style={{ background: '#F1EFE5', fontFamily: meiryo }}>
+    <div className="min-h-screen min-h-dvh w-full bg-[#F1EFE5] md:bg-[#D8D4C2]" style={{ fontFamily: meiryo }}>
+      <div className="mx-auto max-w-md min-h-screen min-h-dvh bg-[#F1EFE5] md:shadow-2xl relative">
       {/* HEADER */}
       <header className="px-5 pt-9 pb-7 border-b border-[#D8D4C2]" style={{ background: 'linear-gradient(180deg, #FAF8F1 0%, #F1EFE5 100%)' }}>
         <div className="flex items-center justify-between mb-4">
@@ -274,8 +275,8 @@ export default function App() {
           <div className="px-5 py-9 text-white relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #1A2F4A 0%, #2C4A6E 60%, #4A6B8C 100%)' }}>
             <div className="absolute top-0 right-0 w-32 h-32 opacity-10" style={{ background: 'radial-gradient(circle, #FFF 0%, transparent 70%)' }} />
             <div className="text-[10px] tracking-[0.3em] text-[#C4D0E0] mb-2 font-bold relative">CONCEPT / コンセプト</div>
-            <h2 className="text-2xl leading-tight mb-3 font-bold relative">{displayData.concept.name}</h2>
-            <p className="text-[#C4D0E0] text-sm mb-4 relative font-bold">「{displayData.concept.tagline}」</p>
+            <h2 className="text-2xl leading-tight mb-3 font-bold relative break-words">{displayData.concept.name}</h2>
+            <p className="text-[#C4D0E0] text-sm mb-4 relative font-bold break-words">「{displayData.concept.tagline}」</p>
             <p className="text-xs leading-relaxed text-[#E8EAF0] relative">{displayData.concept.story}</p>
           </div>
 
@@ -285,7 +286,7 @@ export default function App() {
               <button
                 key={t.id}
                 onClick={() => setActiveTab(t.id)}
-                className={`flex-1 min-w-[68px] py-3.5 flex flex-col items-center justify-center gap-0.5 transition-all border-b-2 ${
+                className={`flex-1 min-w-[60px] py-3.5 flex flex-col items-center justify-center gap-0.5 transition-all border-b-2 ${
                   activeTab === t.id ? 'border-[#2C4A6E] text-[#2C4A6E] bg-white' : 'border-transparent text-[#7A92AB]'
                 }`}
               >
@@ -331,9 +332,10 @@ export default function App() {
         </section>
       )}
 
-      <footer className="px-5 py-5 border-t border-[#D8D4C2] text-center bg-[#FAF8F1]">
+      <footer className="px-5 py-5 border-t border-[#D8D4C2] text-center bg-[#FAF8F1] safe-bottom">
         <div className="text-[10px] tracking-[0.2em] text-[#7A92AB] font-bold">STICK ATELIER · DEMO with dummy data</div>
       </footer>
+      </div>
     </div>
   );
 }
